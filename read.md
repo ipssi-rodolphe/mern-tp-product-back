@@ -63,4 +63,4 @@ Pour démarrer le serveur en mode développement avec nodemon (surveillance des 
 
 Le serveur Express sera lancé sur http://localhost:3001 (ou le port défini dans votre fichier .env).
 
-Pour la documentation des end-point : 
+Pour la documentation des end-point : https://www.postman.com/cloudy-space-835028/ipssi-rodolphe/folder/wss44mu/project-tp-mern-product-back?action=share&creator=19539235&ctx=documentation&active-environment=19539235-90f35dd4-1026-4695-bfc3-521a5d84534d
