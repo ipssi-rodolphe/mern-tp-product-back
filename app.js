@@ -9,7 +9,8 @@ const app = express();
 
 // Middleware pour activer CORS sur localhost:ClientPort 
 app.use(cors({
-    origin: `http://localhost:${process.env.CLIENT_PORT}`
+    origin: [`http://localhost:${process.env.CLIENT_PORT}`, 'http://localhost:5173'],
+    // credentials: true
 }));
 
 // Middleware pour parser les requêtes JSON
