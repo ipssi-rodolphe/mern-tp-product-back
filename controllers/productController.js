@@ -42,18 +42,23 @@ const createProduct = async (req, res) => {
 
 // PUT - Modifier un produit existant
 const updateProduct = async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
     try {
         const updatedProduct = await Product.findByIdAndUpdate(
             req.params.id,
             req.body,
-            { new: true }
+            { new: true, runValidators: true } // Validation et récupération des données mises à jour
         );
         if (!updatedProduct) {
             return res.status(404).json({ message: 'Produit non trouvé' });
         }
         res.json(updatedProduct);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        res.status(400).json({ message: 'Erreur lors de la mise à jour du produit : ' + error.message });
     }
 };
 

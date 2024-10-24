@@ -19,7 +19,10 @@ router.post('/products', [
 ], createProduct);
 
 // Route pour mettre à jour un produit
-router.put('/products/:id', updateProduct);
+router.put('/products/:id', updateProduct, [
+    check('price').optional().isFloat({ gt: 0 }).withMessage('Le prix doit être un nombre positif'),
+    check('quantity').optional().isInt({ min: 0 }).withMessage('La quantité doit être un entier positif')
+]);
 
 // Route pour supprimer un produit
 router.delete('/products/:id', deleteProduct);
